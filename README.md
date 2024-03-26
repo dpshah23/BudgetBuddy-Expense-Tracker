@@ -2,11 +2,11 @@
 
 # Clone This Repo
 
-Step 1 : Open Xampp Folder
-Step 2 : Go To Htdocs
-Step 3 : Create new folder expense tracker
-Step 4 : Open Terminal 
-Step 5 : Run this Command
+Step 1 : Open Xampp Folder <br>
+Step 2 : Go To Htdocs<br>
+Step 3 : Create new folder expense tracker<br>
+Step 4 : Open Terminal <br>
+Step 5 : Run this Command<br>
 ```bash
 git clone https://github.com/dpshah23/Expense-Tracker.git
 ```
@@ -15,12 +15,12 @@ Step 6 : Open Folder expense-tracker
 
 # How To Run ?
 
-Step 1 : Open Xampp
-Step 2 : Start Apache And MySql
-Step 3 : Go To Admin Panel Of MySql
-Step 4 : Create New Database Name it expense-tracker
-Step 5 : Create New Table users
-Step 6 : Create Table
+Step 1 : Open Xampp<br>
+Step 2 : Start Apache And MySql<br>
+Step 3 : Go To Admin Panel Of MySql<br>
+Step 4 : Create New Database Name it expense-tracker<br>
+Step 5 : Create New Table users<br>
+Step 6 : Create Table<br>
 
 Schema 
 
