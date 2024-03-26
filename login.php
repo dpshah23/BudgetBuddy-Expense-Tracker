@@ -22,6 +22,11 @@
 </div>
 
 <?php
+session_start();
+if (isset($_SESSION["login"])) {
+    header('location: dashboard.php');
+    exit();
+}
 if($_SERVER['REQUEST_METHOD'] == "POST") {
     include 'dbconfig.php';
     $email = $_POST['email'];
@@ -30,10 +35,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     
     // echo "Connected successfully";
 
-    $sql = mysqli_query($conn,"SELECT name FROM users WHERE email='$email' AND password='$user_password'");
+    $sql = mysqli_query($conn,"SELECT * FROM users WHERE email='$email' AND password='$user_password'");
     $row = mysqli_fetch_array($sql);
 
-    session_start();
+    
     
     if ($row) {
         
@@ -43,8 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION['email'] = $email;
         $_SESSION['password']=$user_password;
         $_SESSION['mobile_no']=$row['mobile'];
-        
-        header('location: index.php');
+        header('Location: dashboard.php');
         exit();
     } else {
         echo '<script>';
