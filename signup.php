@@ -48,6 +48,25 @@
 </html>
 <?php
 
+if($_SERVER['REQUEST_METHOD']=="POST")
+{
+    include 'dbconfig.php';
+    $name=$_POST['nm'];
+    $email=$_POST['email'];
+    $password_user=$_POST['passwd'];
+    $mobile=$_POST['mobile'];
+    try {
+    $sql=mysqli_query($conn,"INSERT INTO `users` (`email`, `password`, `name`, `mobile`) VALUES ('$email', '$password_user', '$name', '$email')");
+    echo "<script>alert(\"User Created Successfully....\")</script>";
+    header('Location: login.php');
+    exit();
+    }
+    catch (\Throwable $th) {
+        echo "<script>alert(\"Unable To Create New User....\")</script>";
+    }
+    
+    
+}
 
 
 ?>
