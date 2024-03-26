@@ -25,11 +25,11 @@ Step 6 : Create Table<br>
 Schema 
 
 Name               Type           Length
-
-email              VARCHAR        70
-password           VARCHAR        50
-name               VARCHAR        50
-mobile             VARCHAR        50
+<br >
+email              VARCHAR        70<br>
+password           VARCHAR        50<br>
+name               VARCHAR        50<br>
+mobile             VARCHAR        50<br>
 
 Step 7 : Insert Data And Run Query From PhpMyAdmin
 
@@ -42,7 +42,7 @@ localhost/expense tracker/expense-tracker
 
 Logic Done
 
-Login
-Signup 
-Logout
+Login<br>
+Signup<br>
+Logout<br>
 
