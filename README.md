@@ -38,3 +38,11 @@ Step 8 : Go To URL
 localhost/expense tracker/expense-tracker
 ```
 
+# Work Done
+
+Logic Done
+
+Login
+Signup 
+Logout
+
