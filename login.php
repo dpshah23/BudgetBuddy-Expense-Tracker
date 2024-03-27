@@ -14,8 +14,8 @@
         <div class="log-in form">
             <header class="heading">Log-In</header>
             <form action="" method="post">
-                <input class="email" type="text" name="email" placeholder="Enter Email" />
-                <input class="password" type="password" name="password" placeholder="Enter Password" />
+                <input class="email" type="text" name="email" placeholder="Enter Email" require />
+                <input class="password" type="password" name="password" placeholder="Enter Password" require />
                 <div class="forgot-password">
                     <a href="#">Forgot Password?</a>
                 </div>
@@ -51,7 +51,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     
     if ($row) {
         
-        echo "Name: " . $row['name']; 
         $_SESSION['login'] = true;
         $_SESSION['name'] = $row['name'];
         $_SESSION['email'] = $email;

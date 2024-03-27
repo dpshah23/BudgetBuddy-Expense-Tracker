@@ -13,11 +13,11 @@
         <div class="log-in form">
             <header class="heading">Sign-Up</header>
             <form action="" method="post">
-                <input class="name" type="name" type="text" name="nm" placeholder="Enter your Name" />
-                <input class="email" type="email" name="email" placeholder="Enter Email" />
-                <input class="email" type="number" name="number" placeholder="Enter Mobile Number" />
-                <input class="password" type="password" id="password1" name="passwd" placeholder="Enter Password" />
-                <input class="password" type="password" id="password2" placeholder="Confirm Password" />
+                <input class="name" type="name" type="text" name="nm" placeholder="Enter your Name" require/>
+                <input class="email" type="email" name="email" placeholder="Enter Email" require/>
+                <input class="email" type="number" name="number" placeholder="Enter Mobile Number" require/>
+                <input class="password" type="password" id="password1" name="passwd" placeholder="Enter Password" require/>
+                <input class="password" type="password" id="password2" placeholder="Confirm Password" require/>
                 <p id="message"></p>
                 <div class="forgot-password">
                     <a href="#">Forgot Password?</a>
