@@ -18,6 +18,7 @@
                 <input class="email" type="number" name="number" placeholder="Enter Mobile Number" />
                 <input class="password" type="password" id="password1" name="passwd" placeholder="Enter Password" />
                 <input class="password" type="password" id="password2" placeholder="Confirm Password" />
+                <p id="message"></p>
                 <div class="forgot-password">
                     <a href="#">Forgot Password?</a>
                 </div>
