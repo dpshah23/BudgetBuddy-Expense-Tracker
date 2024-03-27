@@ -10,20 +10,26 @@
 </head>
 <body>
 <div class="container">
-    <form action="" method="post">
-    <h1>Name : </h1>
-    <input type="text" name="nm" placeholder="Enter Your Name" require>
-    <h1>Email ID : </h1>
-    <input type="email" name="email"  placeholder="Enter Your Email" require>
-    <h1>Mobile Number : </h1>
-    <input type="number" name="mobile" placeholder="Enter Your Mobile Number" require>
-    <h1>Password : </h1>
-    <input type="password" name="passwd" id="password1" placeholder="Enter Your Password" require>
-    <h1>Confirm Password : </h1>
-    <input type="password" name="passwd_confirm" id="password2" placeholder="Enter Your Password" require>
-    <p id="message"></p>
-    <br>
-    <button type="submit">Submit</button>
+        <div class="log-in form">
+            <header class="heading">Sign-Up</header>
+            <form action="" method="post">
+                <input class="name" type="name" type="text" name="nm" placeholder="Enter your Name" />
+                <input class="email" type="email" name="email" placeholder="Enter Email" />
+                <input class="email" type="number" name="number" placeholder="Enter Mobile Number" />
+                <input class="password" type="password" id="password1" name="passwd" placeholder="Enter Password" />
+                <input class="password" type="password" id="password2" placeholder="Confirm Password" />
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="sign-up">Sign Up</button>
+            </form>
+            <div class="signup">
+                <span class="do-this">Already have an Account?
+                    <a class="sign" href="login.php">Log-In</a>
+                </span>
+            </div>
+        </div>
+    </div>
 </form>
 
 </div>
