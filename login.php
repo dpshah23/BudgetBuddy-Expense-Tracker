@@ -9,18 +9,26 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container">
-    <form action="" method="post">
-    <h1 class="mail">Email : </h1>
-    <input type="email" name="email" placeholder="Enter Your Email">
-    <h1>Password : </h1>
-    <input type="password" name="password"  placeholder="Enter Your Password">
-    
-    <br><br><br>
-    <button type="submit">Submit</button>
-</form>
+<div class="container">
+        <!-- <input type="checkbox" id="check"> -->
+        <div class="log-in form">
+            <header class="heading">Log-In</header>
+            <form action="" method="post">
+                <input class="email" type="text" name="email" placeholder="Enter Email" />
+                <input class="password" type="password" name="password" placeholder="Enter Password" />
+                <div class="forgot-password">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="sign-up">Log In</button>
+            </form>
+            <div class="signup">
+                <span class="do-this">Don't have an Account?
+                    <a class="sign" href="signup.php">Sign-Up</a>
+                </span>
+            </div>
+        </div>
+    </div>
 
-</div>
 
 <?php
 session_start();
