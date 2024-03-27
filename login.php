@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Expense Tracker </title>
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'login.css') }}"> 
+    <link rel="stylesheet" href="./static/login.css"> 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
     <form action="" method="post">
-    <h1>Email : </h1>
+    <h1 class="mail">Email : </h1>
     <input type="email" name="email" placeholder="Enter Your Email">
     <h1>Password : </h1>
     <input type="password" name="password"  placeholder="Enter Your Password">
@@ -25,7 +25,7 @@
 <?php
 session_start();
 if (isset($_SESSION["login"])) {
-    header('location: dashboard.php');
+    header('location: index.php');
     exit();
 }
 if($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION['email'] = $email;
         $_SESSION['password']=$user_password;
         $_SESSION['mobile_no']=$row['mobile'];
-        header('Location: dashboard.php');
+        header('Location: index.php');
         exit();
     } else {
         echo '<script>';
