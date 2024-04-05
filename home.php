@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-session_start(); // Move session_start() to the top of your PHP code
+session_start(); 
 
 include 'dbconfig.php';
 

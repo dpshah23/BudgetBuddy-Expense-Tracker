@@ -46,3 +46,15 @@ Login<br>
 Signup<br>
 Logout<br>
 
+# Category
+
+<br>
+Food<br>
+Clothing<br>
+Medical<br>
+Transporation<br>
+Loan Intrests<br>
+Rent<br>
+Social Media Subscriptions<br>
+Invested Amount<br>
+Other
