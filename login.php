@@ -14,8 +14,8 @@
         <div class="log-in form">
             <header class="heading">Log-In</header>
             <form action="" method="post">
-                <input class="email" type="text" name="email" placeholder="Enter Email" require />
-                <input class="password" type="password" name="password" placeholder="Enter Password" require />
+                <input class="email" type="text" name="email" placeholder="Enter Email" required />
+                <input class="password" type="password" name="password" placeholder="Enter Password" required />
                 <div class="forgot-password">
                     <a href="#">Forgot Password?</a>
                 </div>
@@ -33,7 +33,7 @@
 <?php
 session_start();
 if (isset($_SESSION["login"])) {
-    header('location: index.php');
+    header('location: home.php');
     exit();
 }
 if($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         $_SESSION['email'] = $email;
         $_SESSION['password']=$user_password;
         $_SESSION['mobile_no']=$row['mobile'];
-        header('Location: index.php');
+        header('Location: home.php');
         exit();
     } else {
         echo '<script>';
