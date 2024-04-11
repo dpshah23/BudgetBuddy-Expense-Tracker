@@ -10,7 +10,6 @@
 </head>
 <body>
 <div class="container">
-        <!-- <input type="checkbox" id="check"> -->
         <div class="log-in form">
             <header class="heading">Log-In</header>
             <form action="" method="post">
