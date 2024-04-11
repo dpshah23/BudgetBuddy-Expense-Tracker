@@ -1,0 +1,56 @@
+body {
+    width: 20000px;
+    height: 200px;
+    background: white;
+}
+
+.parent {
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffffcc;
+    border-radius: 10px;
+    box-shadow: 0 0 1000px  rgba(48, 181, 92, 0.533) ;
+    padding: 25px;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    text-align: center;
+}
+
+input,
+textarea,
+select {
+    margin: 5px auto; 
+    border: 1px solid black;
+    border-radius: 5px;
+    display: block;
+    width: calc(100% - 10px);
+    background: transparent; 
+}
+
+input[type="submit"] {
+    border: 1px solid black;
+    transition: all 0.3s ease-in-out;
+    margin-top: 5px;
+    border-radius: 5px;
+    padding: 7px 0 7px 0;
+}
+
+input[type="submit"]:hover {
+    border: 1px solid rgba(48, 181, 106, 0.533);
+    border-radius: 5px;
+    background-color:rgba(48, 181, 106, 0.533);
+}
+
+.button{
+    width: calc(40% - 5px);
+    margin-left: 85px;
+}
