@@ -26,7 +26,7 @@
   </nav>
 
   <div class="chart-container">
-  <canvas id="pieChart" width="300" height="300"></canvas>
+  <canvas id="pieChart" width="100" height="100"></canvas>
   </div>
 
     <script>
@@ -63,5 +63,49 @@
 
         updateChartData([200, 100, 150, 156, 223, 555, 444, 856, 166]);
     </script>
+
+<div class="balance">
+    <h1>Remaining Balance: </h1>
+    <div class="container">
+    ₹ 5000
+    </div>
+  </div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Status</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Pending</td>
+            <td>John Doe</td>
+            <td>Electronics</td>
+            <td>500</td>
+        </tr>
+        <tr>
+            <td>Completed</td>
+            <td>Jane Smith</td>
+            <td>Books</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>In Progress</td>
+            <td>Michael Johnson</td>
+            <td>Clothing</td>
+            <td>350</td>
+        </tr>
+        <tr>
+            <td>Cancelled</td>
+            <td>Sarah Lee</td>
+            <td>Home Appliances</td>
+            <td>700</td>
+        </tr>
+    </tbody>
+</table>
 </body>
 </html>
