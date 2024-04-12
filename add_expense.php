@@ -1,3 +1,10 @@
+<?php
+if(!($_SESSION['email'])){
+    header('Location: login.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +20,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="./static/add_expense.css">
 </head>
+
+
+
 <body>
     <div class="parent">
     <h1>Add Expense</h1>
     <div class="child">
-    <form method="POST" action="/add_product">
+    <form method="POST" action="">
         <label for="name">Expense Name:</label>
         <input type="text" id="name" name="name" required><br>      
         
@@ -58,7 +68,7 @@
 error_reporting(0);
 if($_SERVER['REQUEST_METHOD']=='GET')
 { 
-    $empid=$_SESSION['email'];
+    $email=$_SESSION['email'];
     $name=$_GET['name'];
     $cat=$_GET['category'];
     $desc=$_GET['description'];
@@ -67,6 +77,23 @@ if($_SERVER['REQUEST_METHOD']=='GET')
 
     include 'dbconfig.php';
     
+    $sqlq="INSERT INTO `expenses` (`name`, `email`, `description`, `category`, `time`, `amount`) VALUES ('$name', '$email', '$desc', '$cat', '$time, '$amoubt');";
+
+    $execquery=mysqli_query($conn,$sqlq);
+
+    if($execquery){
+        echo "<script>";
+        echo "alert(\"Expense Added Successfully\");";
+        echo "</script>";
+        header('location: home.php');
+        exit();
+    }
+    else{
+        echo "<script>";
+        echo "alert(\"Error Occured While Adding Data\");";
+        echo "</script>";
+
+    }
     
 }
 ?>

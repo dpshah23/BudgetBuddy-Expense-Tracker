@@ -36,7 +36,8 @@ include 'dbconfig.php';
 ?>
 <div class="chart-container">
   <canvas id="pieChart" width="300" height="300"></canvas>
-  <button name="add_expense" ><a href="add_expense.php">Add Expense </a></button>
+  <!-- <button name="add_expense" ><a href="add_expense.php">Add Expense </a></button> -->
+  <a href="add_expense.php">click me</a>
   </div>
     <script>
         var ctx = document.getElementById('pieChart').getContext('2d');
