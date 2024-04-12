@@ -27,8 +27,7 @@
         <label for="amount">Amount:</label>
         <input type="number" id="amount" name="amount" required><br>
 
-        <label for="price">Date:</label>
-        <input type="date" id="date" name="date" required><br>
+        
         
         <label for="field">Filter by Field:</label>
         <select name="field" id="field">
@@ -58,12 +57,16 @@
 <?php
 error_reporting(0);
 if($_SERVER['REQUEST_METHOD']=='GET')
-{
+{ 
+    $empid=$_SESSION['email'];
     $name=$_GET['name'];
     $cat=$_GET['category'];
     $desc=$_GET['description'];
     $time=date('%D-%M-%Y');
     $amount-$_GET['amount'];
+
+    include 'dbconfig.php';
+    
     
 }
 ?>
