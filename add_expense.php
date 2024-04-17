@@ -1,4 +1,13 @@
+<?php
+session_start();
+if(!($_SESSION['email']))
+{
+    echo "<script>";
+    echo "window.location.href = 'home.php';";
+    echo "</script>";
 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +24,12 @@
 <link rel="stylesheet" href="./static/add_expense.css">
 </head>
 
-
-
 <body>
+
+<?php
+$name = $_SESSION['name'];
+include 'navbar.php';
+?>
     <div class="parent">
     <h1>Add Expense</h1>
     <div class="child">
@@ -60,7 +72,7 @@
 
 <?php
 // error_reporting(0);
-session_start();
+
 if($_SERVER['REQUEST_METHOD']=='POST')
 { 
     $email=$_SESSION['email'];
