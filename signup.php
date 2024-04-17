@@ -13,16 +13,13 @@
         <div class="log-in form">
             <header class="heading">Sign-Up</header>
             <form action="" method="post">
-                <input class="name" type="name" type="text" name="nm" placeholder="Enter your Name" required/>
-                <input class="email" type="email" name="email" placeholder="Enter Email" required/>
-                <input class="email" type="number" name="number" placeholder="Enter Mobile Number" required/>
-                <input class="password" type="password" id="password1" name="passwd" placeholder="Enter Password" required/>
-                <input class="password" type="password" id="password2" placeholder="Confirm Password" required/>
-                <p id="message"></p>
-                <div class="forgot-password">
-                    <a href="#">Forgot Password?</a>
-                </div>
-                <button type="submit" class="sign-up">Sign Up</button>
+                <input class="name" type="name" type="text" name="nm" placeholder="Enter your Name" required style="border:white;"/>
+                <input class="email" type="email" name="email" placeholder="Enter Email" required style="border:white;"/>
+                <input class="email" type="number" name="number" placeholder="Enter Mobile Number" required style="border:white;"/>
+                <input class="password" type="password" id="password1" name="passwd" placeholder="Enter Password" required style="border:white;" />
+                <input class="password" type="password" id="password2" placeholder="Confirm Password" required style="border:white;"/>
+               
+                <button type="submit" class="sign-up" style="border:white;" >Sign Up</button>
                 <span class="do-this">Already have an Account?
                     <a class="sign" href="login.php">Log-In</a>
                 </span>

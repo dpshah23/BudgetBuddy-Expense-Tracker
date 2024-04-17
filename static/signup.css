@@ -1,13 +1,14 @@
 body {
-    background-color: #358597;
+    background-color: #90cbd8;
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
+
 .container {
     margin-top: 10rem;
-    background-color: #f4a896;
+    background-color:#d68e8ed7;
     display: flex;
     justify-content: center;
     align-content: center;
