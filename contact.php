@@ -26,6 +26,7 @@
                 <h3>Mishty Vadera</h3>
                 <p>Enrollment number : 226170307218</p>
                 <p>Phone: +91 81419 08045</p>
+                <p>Email: vaderamishty@gmail.com</p>
             </div>
             <div class="employee-card">
                 <h3>Vedant Tuvar</h3>
@@ -35,9 +36,9 @@
             </div>
             
         </div>
-    </div></center>
-
-    <div class="container mb-3 py-4">
+    </div>
+<div class="container-form">
+    <div class="employee-card">
     <h1 class="text-center">Contact Us</h1>
   
 
@@ -64,9 +65,9 @@
         <label for="exampleFormControlTextarea1" class="form-label">Description</label>
         <textarea class="form-control" id="description" rows="3" name="description"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn" style="background-color:white;">Submit</button>
     </form>
-    </div>
+    </div></center>
 
 <?php
 if($_SERVER['REQUEST_METHOD']=="POST")
@@ -78,7 +79,7 @@ if($_SERVER['REQUEST_METHOD']=="POST")
     $subject=$_POST['subject'];
     $description=$_POST['description'];
 
-    $sqlq="INSERT INTO `contact` (`email`, `name`, `mobile`, `subject`, `description`) VALUES ('$email', '$name', '$mobile', '$title', '$description');";
+    $sqlq="INSERT INTO `contact` (`email`, `name`, `mobile`, `subject`, `description`) VALUES ('$email', '$name', '$mobile', '$subject', '$description');";
 
     $execquery=mysqli_query($conn,$sqlq);
 
