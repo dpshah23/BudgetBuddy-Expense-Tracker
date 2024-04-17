@@ -74,8 +74,49 @@ include 'dbconfig.php';
         updateChartData([200, 100, 150, 156, 223, 555, 444, 856, 166]);
     </script>
 
+<?php
 
+session_start();
+include 'dbconfig.php';
+
+$email=$_SESSION['email'];
+echo $email;
+$sqlq="SELECT * FROM `expenses` WHERE `email` = '$email';";
+
+$exec=mysqli_query($conn,$sqlq);
+
+$rows=mysqli_fetch_all($exec, MYSQLI_ASSOC);
+
+echo "<div class=\"container\">
+<table class=\"table\">
+
+<thead>
+<tr>
+      <th scope=\"col\">#</th>
+      <th scope=\"col\">Expense Name</th>
+      <th scope=\"col\">Description</th>
+      <th scope=\"col\">Category</th>
+      <th scope=\"col\">Amount</th>
+      <th scope=\"col\">Time</th>     
+</tr>
+</thead>
+<tbody>";
+foreach ($rows as $i => $row) {
+    echo "<tr>
+    <th scope=\"row\">" . ($i + 1) . "</th>
+    <td>" . $row['name'] . "</td>
+    <td>" . $row['description'] . "</td>
+    <td>" . $row['category'] . "</td>
+    <td>" . $row['amount'] . "</td>
+    <td>" . $row['time'] . "</td>
+    </tr>";
+}
+echo "</tbody>
+</table>
+</div>";
+
+
+?>
 
 </body>
 </html>
-
