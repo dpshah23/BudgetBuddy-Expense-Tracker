@@ -38,6 +38,19 @@ Step 8 : Go To URL
 localhost/expense tracker/expense-tracker
 ```
 
+
+Expense Table Schema
+
+Name        Type        Length
+
+name        varchar     100
+email       varchar     50
+description text        
+category    varchar     20
+time        varchar     30
+amount      varchar     70
+
+
 # Work Done
 
 Logic Done
