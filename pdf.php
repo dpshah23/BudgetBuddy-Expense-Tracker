@@ -25,7 +25,9 @@
  */
 
 // Include the main TCPDF library (search for installation path).
-require_once('TCPDF/tcpdf.php');
+require 'TCPDF/tcpdf.php';
+// require 'PHPMailer/PHPMailer.php'; // Include PHPMailer library
+// require 'PHPMailer/SMTP.php';
 
 // extend TCPF with custom functions
 class MYPDF extends TCPDF {
@@ -46,7 +48,7 @@ class MYPDF extends TCPDF {
     // Load income data from file
     public function LoadIncomeData() {
         // Read file lines
-        session_start();
+        
         include 'dbconfig.php';
         $email = $_SESSION['email'];
 
@@ -152,5 +154,14 @@ $data_income = $pdf->LoadIncomeData();
 $pdf->ColoredTable($header_income, $data_income);
 
 // close and output PDF document
-$pdf->Output('pdf.pdf', 'I');
+$pdfFilePath = 'pdf/pdf.pdf'; // Specify the file path where you want to save the PDF
+$pdf->Output($pdfFilePath, 'F');
+
+// Check if the PDF was successfully saved
+if (file_exists($pdfFilePath)) {
+    echo 'PDF file saved successfully.';
+} else {
+    echo 'Error: Unable to save PDF file.';
+}
+
 ?>
