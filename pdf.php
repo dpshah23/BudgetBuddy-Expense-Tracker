@@ -155,13 +155,7 @@ $pdf->ColoredTable($header_income, $data_income);
 
 // close and output PDF document
 $pdfFilePath = 'pdf/pdf.pdf'; // Specify the file path where you want to save the PDF
-$pdf->Output($pdfFilePath, 'F');
+$pdf->Output($pdfFilePath, 'D');
 
-// Check if the PDF was successfully saved
-if (file_exists($pdfFilePath)) {
-    echo 'PDF file saved successfully.';
-} else {
-    echo 'Error: Unable to save PDF file.';
-}
 
 ?>
