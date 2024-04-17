@@ -30,19 +30,34 @@ require_once('TCPDF/tcpdf.php');
 // extend TCPF with custom functions
 class MYPDF extends TCPDF {
 
-    // Load table data from file
-    public function LoadData($file) {
+    // Load expense data from file
+    public function LoadData() {
         // Read file lines
-        $lines = file($file);
-        $data = array();
-        foreach($lines as $line) {
-            $data[] = explode(';', chop($line));
-        }
-        return $data;
+        session_start();
+        include 'dbconfig.php';
+        $email = $_SESSION['email'];
+
+        $select = "SELECT * FROM `expenses` WHERE `email` = '$email';";
+
+        $query = mysqli_query($conn, $select);
+        return $query;
     }
 
-    // Colored table
-    public function ColoredTable($header,$data) {
+    // Load income data from file
+    public function LoadIncomeData() {
+        // Read file lines
+        session_start();
+        include 'dbconfig.php';
+        $email = $_SESSION['email'];
+
+        $select = "SELECT * FROM `income` WHERE `email` = '$email';";
+
+        $query = mysqli_query($conn, $select);
+        return $query;
+    }
+
+    // Colored table for expenses and income
+    public function ColoredTable($header, $data) {
         // Colors, line width and bold font
         $this->SetFillColor(255, 0, 0);
         $this->SetTextColor(255);
@@ -50,9 +65,9 @@ class MYPDF extends TCPDF {
         $this->SetLineWidth(0.3);
         $this->SetFont('', 'B');
         // Header
-        $w = array(40, 35, 40, 45);
+        $w = array(15, 45, 60, 20, 25, 20);
         $num_headers = count($header);
-        for($i = 0; $i < $num_headers; ++$i) {
+        for ($i = 0; $i < $num_headers; ++$i) {
             $this->Cell($w[$i], 7, $header[$i], 1, 0, 'C', 1);
         }
         $this->Ln();
@@ -62,13 +77,18 @@ class MYPDF extends TCPDF {
         $this->SetFont('');
         // Data
         $fill = 0;
-        foreach($data as $row) {
-            $this->Cell($w[0], 6, $row[0], 'LR', 0, 'L', $fill);
-            $this->Cell($w[1], 6, $row[1], 'LR', 0, 'L', $fill);
-            $this->Cell($w[2], 6, number_format($row[2]), 'LR', 0, 'R', $fill);
-            $this->Cell($w[3], 6, number_format($row[3]), 'LR', 0, 'R', $fill);
+        $num = 1;
+        foreach ($data as $row) {
+            $this->Cell($w[0], 6, $num, 'LR', 0, 'L', $fill);
+            $this->Cell($w[1], 6, $row['name'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[2], 6, $row['description'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[3], 6, $row['category'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[4], 6, $row['time'], 'LR', 0, 'L', $fill);
+            $this->Cell($w[5], 6, $row['amount'], 'LR', 0, 'L', $fill);
+
             $this->Ln();
-            $fill=!$fill;
+            $num++;
+            $fill = !$fill;
         }
         $this->Cell(array_sum($w), 0, '', 'T');
     }
@@ -79,13 +99,12 @@ $pdf = new MYPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Nicola Asuni');
-$pdf->SetTitle('TCPDF Example 011');
-$pdf->SetSubject('TCPDF Tutorial');
-$pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+$pdf->SetTitle('Expense Tracker Application');
+$pdf->SetSubject('Expenses and Income PDF');
+$pdf->SetKeywords('expenses, income');
 
 // set default header data
-$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE.' 011', PDF_HEADER_STRING);
+$pdf->SetHeaderData(PDF_HEADER_LOGO, PDF_HEADER_LOGO_WIDTH, PDF_HEADER_TITLE . ' 011', PDF_HEADER_STRING);
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -105,36 +124,33 @@ $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
 // set image scale factor
 $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
 
-// set some language-dependent strings (optional)
-if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
-    require_once(dirname(__FILE__).'/lang/eng.php');
-    $pdf->setLanguageArray($l);
-}
-
-// ---------------------------------------------------------
-
 // set font
 $pdf->SetFont('helvetica', '', 12);
 
 // add a page
 $pdf->AddPage();
 
-// column titles
-$header = array('Country', 'Capital', 'Area (sq km)', 'Pop. (thousands)');
+// column titles for expenses
+$header_expenses = array('Sr. No.', 'Title', 'Description', 'Category', 'Date', 'Amount');
 
-// data loading
-$data = $pdf->LoadData('data/table_data_demo.txt');
+// data loading for expenses
+$data_expenses = $pdf->LoadData();
 
-// print colored table
-$pdf->ColoredTable($header, $data);
+// print colored table for expenses
+$pdf->ColoredTable($header_expenses, $data_expenses);
 
-// ---------------------------------------------------------
+// add a new page
+$pdf->AddPage();
+
+// column titles for income
+$header_income = array('Sr. No.', 'Title', 'Description','Category', 'Date','Amount');
+
+// data loading for income
+$data_income = $pdf->LoadIncomeData();
+
+// print colored table for income
+$pdf->ColoredTable($header_income, $data_income);
 
 // close and output PDF document
-$pdf->Output('example_011.pdf', 'I');
-
-//============================================================+
-// END OF FILE
-//============================================================+
-
+$pdf->Output('pdf.pdf', 'I');
 ?>
