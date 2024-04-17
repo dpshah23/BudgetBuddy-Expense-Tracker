@@ -74,13 +74,42 @@ include 'dbconfig.php';
         updateChartData([200, 100, 150, 156, 223, 555, 444, 856, 166]);
     </script>
 
+    <?php
+        include 'dbconfig.php';
+        session_start();
+        $email=$_SESSION['email'];
+        $sqlq="SELECT amount FROM `expenses` WHERE `email` LIKE '$email';";
+        $executedueryexpense=mysqli_query($conn,$sqlq);
+        $rows=mysqli_fetch_all($executedueryexpense, MYSQLI_ASSOC);
+        $expenseamount=0;
+        foreach ($rows as $i => $row)
+        {
+            $expenseamount+=$row['amount'];
+        }
+
+        $sql="SELECT amount FROM `income` WHERE `email` LIKE '$email';";
+        $executeduerysalary=mysqli_Query($conn,$sql);
+        $rows=mysqli_fetch_all($executeduerysalary,MYSQLI_ASSOC);
+        $salaryamount=0;
+        foreach ($rows as $i => $row)
+        {
+            $salaryamount+=$row['amount'];
+        }
+
+        $value=$salaryamount-$expenseamount;
+    ?>
+<div class="balance">
+    <h1>Remaining Balance: </h1>
+    <div class="container">
+    <?php  echo "₹".$value; ?>
+    </div>
+  </div>
 <?php
 
 session_start();
 include 'dbconfig.php';
 
 $email=$_SESSION['email'];
-echo $email;
 $sqlq="SELECT * FROM `expenses` WHERE `email` = '$email';";
 
 $exec=mysqli_query($conn,$sqlq);
