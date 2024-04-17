@@ -8,6 +8,7 @@
       <li><a href="#">Home</a></li>
       <li><a href="#">Contact Us</a></li>
       <li><a href="#">Income Dashboard</a></li>
+      <li><a href="pdf.php">Download PDF</a></li>
       <li><a href="#">Hello, <?php echo $name;  ?></a></li>
       <a class="dowload" href="logout.php" >Logout
     
