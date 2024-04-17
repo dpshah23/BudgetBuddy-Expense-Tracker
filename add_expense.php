@@ -1,9 +1,3 @@
-<?php
-if(!($_SESSION['email'])){
-    header('Location: login.php');
-    exit();
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +21,7 @@ if(!($_SESSION['email'])){
     <div class="parent">
     <h1>Add Expense</h1>
     <div class="child">
-    <form method="POST" action="">
+    <form method="post" action="">
         <label for="name">Expense Name:</label>
         <input type="text" id="name" name="name" required><br>      
         
@@ -65,32 +59,33 @@ if(!($_SESSION['email'])){
 
 
 <?php
-error_reporting(0);
-if($_SERVER['REQUEST_METHOD']=='GET')
+// error_reporting(0);
+session_start();
+if($_SERVER['REQUEST_METHOD']=='POST')
 { 
     $email=$_SESSION['email'];
-    $name=$_GET['name'];
-    $cat=$_GET['category'];
-    $desc=$_GET['description'];
-    $time=date('%D-%M-%Y');
-    $amount-$_GET['amount'];
+    $name=$_POST['name'];
+    $cat=$_POST['field']; 
+    $desc=$_POST['description'];
+    $time=date('Y-m-d'); 
+    $amount=$_POST['amount']; 
 
     include 'dbconfig.php';
     
-    $sqlq="INSERT INTO `expenses` (`name`, `email`, `description`, `category`, `time`, `amount`) VALUES ('$name', '$email', '$desc', '$cat', '$time, '$amoubt');";
+    $sqlq="INSERT INTO `expenses` (`name`, `email`, `description`, `category`, `time`, `amount`) VALUES ('$name', '$email', '$desc', '$cat', '$time', '$amount')";
 
     $execquery=mysqli_query($conn,$sqlq);
 
     if($execquery){
         echo "<script>";
         echo "alert(\"Expense Added Successfully\");";
+        echo "window.location.href = 'home.php';";
         echo "</script>";
-        header('location: home.php');
         exit();
     }
     else{
         echo "<script>";
-        echo "alert(\"Error Occured While Adding Data\");";
+        echo "alert(\"Error Occurred While Adding Data\");";
         echo "</script>";
 
     }
