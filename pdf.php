@@ -154,7 +154,7 @@ $data_income = $pdf->LoadIncomeData();
 $pdf->ColoredTable($header_income, $data_income);
 
 // close and output PDF document
-$pdfFilePath = 'pdf/pdf.pdf'; // Specify the file path where you want to save the PDF
+$pdfFilePath = 'report_budget_buddy.pdf'; // Specify the file path where you want to save the PDF
 $pdf->Output($pdfFilePath, 'D');
 
 
