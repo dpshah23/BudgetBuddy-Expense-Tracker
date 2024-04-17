@@ -52,7 +52,7 @@ include 'navbar.php';
             <option value="Clothing">Clothing</option>
             <option value="Medical">Medical</option>
             <option value="Transportation">Transportation</option>
-            <option value="Loan Intreat">Loan Intreat</option>
+            <option value="Loan Intrest">Loan Intrest</option>
             <option value="Rent">Rent</option>
             <option value="Social Media Susbscription">Social Media Susbscription</option>
             <option value="Invested Amount">Invested Amount</option>

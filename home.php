@@ -36,8 +36,8 @@ include 'dbconfig.php';
 ?>
 <div class="chart-container">
   <canvas id="pieChart" width="300" height="300"></canvas>
-  <!-- <button name="add_expense" ><a href="add_expense.php">Add Expense </a></button> -->
-  <a href="add_expense.php">click me</a>
+  <button name="add_expense" ><a href="add_expense.php">Add Expense </a></button>
+ 
   </div>
     <script>
         var ctx = document.getElementById('pieChart').getContext('2d');
@@ -71,7 +71,99 @@ include 'dbconfig.php';
             myPieChart.update();
         }
 
-        updateChartData([200, 100, 150, 156, 223, 555, 444, 856, 166]);
+        <?php
+            session_start();
+            $email=$_SESSION['email'];
+            $food=0;
+            $clothing=0;
+            $medical=0;
+            $transport=0;
+            $loanintrest=0;
+            $rent=0;
+            $subscription=0;
+            $invested=0;
+            $otherexpense=0;
+
+            include 'dbconfig.php';
+
+            $sqlfood="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Food';";
+            $sqlcloth="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Clothing';";
+            $sqlmedical="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Medical';";
+            $sqltransport="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Transportation';";
+            $sqlloan="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Loan Intrest';";
+            $sqlrent="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Rent';";
+            $sqlsubscription="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Social Media Susbscription';";
+            $sqlinvested="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Invested Amount';";
+            $sqlother="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Other';";
+            
+            $execfood=mysqli_query($conn,$sqlfood);
+            $rows=mysqli_fetch_all($execfood,MYSQLI_ASSOC);
+            foreach ($rows as $i => $row)
+            {
+                $food+=$row['amount'];
+            }
+
+            
+            $execcloth=mysqli_query($conn,$sqlcloth);
+            $rows=mysqli_fetch_all($execcloth,MYSQLI_ASSOC);
+            foreach ($rows as $i => $row)
+            {
+                $clothing+=$row['amount'];
+            }
+
+            $execmedical=mysqli_query($conn,$sqlmedical);
+            $rows=mysqli_fetch_all($execmedical,MYSQLI_ASSOC);
+            foreach ($rows as $i => $row)
+            {
+                $medical+=$row['amount'];
+            }
+
+            $exectransport=mysqli_query($conn,$sqltransport);
+            $rows=mysqli_fetch_all($exectransport,MYSQLI_ASSOC);
+            foreach ($rows as $i => $row)
+            {
+                $transport+=$row['amount'];
+            }
+
+            $execloan=mysqli_query($conn,$sqlloan);
+            $rows=mysqli_fetch_all($execloan,MYSQLI_ASSOC);
+            foreach ($rows as $i => $row)
+            {
+                $loanintrest+=$row['amount'];
+            }
+
+            $execrent=mysqli_query($conn,$sqlrent);
+            $rows=mysqli_fetch_all($execrent,MYSQLI_ASSOC);
+            foreach ($rows as $i => $row)
+            {
+                $rent+=$row['amount'];
+            }
+
+            $execsub=mysqli_query($conn,$sqlsubscription);
+            $rows=mysqli_fetch_all($execsub,MYSQLI_ASSOC);
+            foreach ($rows as $i => $row)
+            {
+                $subscription+=$row['amount'];
+            }
+
+            $execinvested=mysqli_query($conn,$sqlinvested);
+            $rows=mysqli_fetch_all($execinvested,MYSQLI_ASSOC);
+            foreach ($rows as $i => $row)
+            {
+                $invested+=$row['amount'];
+            }
+
+            $execother=mysqli_query($conn,$sqlother);
+            $rows=mysqli_fetch_all($execother,MYSQLI_ASSOC);
+            foreach ($rows as $i => $row)
+            {
+                $other+=$row['amount'];
+            }
+
+
+        ?>
+
+        updateChartData([<?php echo "$food,$cloth,$medical,$transport,$loanintrest,$rent,$subscription,$invested,$otherexpense"?>]);
     </script>
 
     <?php
