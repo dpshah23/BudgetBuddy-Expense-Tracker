@@ -15,9 +15,7 @@
             <form action="" method="post">
                 <input class="email" type="text" name="email" placeholder="Enter Email" required style="border:white;" />
                 <input class="password" type="password" name="password" placeholder="Enter Password" required style="border:white;" />
-                <div class="forgot-password">
-                    <a href="#" style="color:black;">Forgot Password ?</a>
-                </div>
+
                 <button type="submit" class="sign-up" style="border:white;">Log In</button>
             </form>
             <div class="signup">
