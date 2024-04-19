@@ -69,6 +69,7 @@ include 'dbconfig.php';
         function updateChartData(newData) {
             myPieChart.data.datasets[0].data = newData;
             myPieChart.update();
+            console.log(newdata);
         }
 
         <?php
@@ -160,10 +161,15 @@ include 'dbconfig.php';
                 $other+=$row['amount'];
             }
 
+            $expense_arr = array("$food,$clothing,$medical,$transport,$loanintrest,$rent,$subscription,$invested,$otherexpense");
+
 
         ?>
 
-        updateChartData([<?php echo "$food,$cloth,$medical,$transport,$loanintrest,$rent,$subscription,$invested,$otherexpense"?>]);
+console.log([<?php echo "$food,$clothing,$medical,$transport,$loanintrest,$rent,$subscription,$invested,$otherexpense"?>]);
+
+updateChartData([0, 10000, 0, 0, 0, 0, 0, 0, 0]);
+
     </script>
 
     <?php
