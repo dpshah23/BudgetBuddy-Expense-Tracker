@@ -7,7 +7,7 @@
     <ul>
       <li><a href="home.php">Home</a></li>
       <li><a href="contact.php">Contact Us</a></li>
-      <li><a href="Income_dashboard.php">Income Dashboard</a></li>
+      <li><a href="income.php">Income Dashboard</a></li>
       <li><a href="pdf.php">Download PDF</a></li>
       <li><a href="#">Hello, <?php echo $name;  ?></a></li>
       <a class="download" href="logout.php" >Logout
