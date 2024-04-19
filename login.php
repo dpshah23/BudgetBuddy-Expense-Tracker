@@ -20,6 +20,7 @@
             </form>
             <div class="signup">
                 <span class="do-this">
+                Don't have an Account?
                     <a class="sign" href="signup.php" style="color: black;">Sign-Up</a>
                 </span>
             </div>
