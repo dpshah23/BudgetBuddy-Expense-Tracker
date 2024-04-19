@@ -12,7 +12,8 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-    height: 31.8rem;
+    height: 28.8rem;
+    height: 28.8rem;
     width: 22rem;
     padding: 10px;
     border: 3px solid black;
@@ -72,6 +73,7 @@ body {
 
 .sign-up:hover {
     cursor: pointer;
+    border: 2px solid black;
 }
 
 .do-this {
@@ -80,6 +82,10 @@ body {
     align-items: center;
     padding: 10px;
     margin-top: 20px;
+}
+
+.do-this:hover {
+    text-decoration: underline;
 }
 
 .sign {
