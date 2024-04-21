@@ -6,12 +6,12 @@ body {
 }
 
 .container {
-    margin-top: 13rem;
+    margin-top: 10rem;
     background-color: #d68e8ed7;
     display: flex;
     justify-content: center;
     align-content: center;
-    height: 16rem;
+    height: 18rem;
     width: 22rem;
     padding: 10px;
     border-radius: 10px;
