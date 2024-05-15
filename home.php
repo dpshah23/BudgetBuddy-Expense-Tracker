@@ -224,8 +224,10 @@ $exec=mysqli_query($conn,$sqlq);
 
 $rows=mysqli_fetch_all($exec, MYSQLI_ASSOC);
 
-echo "<div class=\"container\">
-<table class=\"table\">
+
+echo "
+<table>
+    <thead>
 
 <thead>
 <tr>
@@ -249,8 +251,7 @@ foreach ($rows as $i => $row) {
     </tr>";
 }
 echo "</tbody>
-</table>
-</div>";
+</table>";
 
 
 ?>
