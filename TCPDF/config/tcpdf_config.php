@@ -99,22 +99,22 @@ define ('PDF_PAGE_ORIENTATION', 'P');
 /**
  * Document creator.
  */
-define ('PDF_CREATOR', 'Expense Tracker');
+define ('PDF_CREATOR', 'TCPDF');
 
 /**
  * Document author.
  */
-define ('PDF_AUTHOR', 'Expense Tracker');
+define ('PDF_AUTHOR', 'TCPDF');
 
 /**
  * Header title.
  */
-define ('PDF_HEADER_TITLE', 'Expense Tracker');
+define ('PDF_HEADER_TITLE', 'TCPDF Example');
 
 /**
  * Header description string.
  */
-define ('PDF_HEADER_STRING', "Manage Your Expenes And Incomes At expense-tracker");
+define ('PDF_HEADER_STRING', "by Nicola Asuni - Tecnick.com\nwww.tcpdf.org");
 
 /**
  * Document unit of measure [pt=point, mm=millimeter, cm=centimeter, in=inch].

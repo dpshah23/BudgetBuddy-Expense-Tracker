@@ -1,5 +1,5 @@
 <?php
-]
+
 /**
  * Creates an example PDF TEST document using TCPDF
  * @package com.tecnick.tcpdf

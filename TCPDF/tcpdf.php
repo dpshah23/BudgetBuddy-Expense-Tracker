@@ -1,7 +1,7 @@
 <?php
 //============================================================+
 // File name   : tcpdf.php
-// Version     : 6.7.4
+// Version     : 6.7.5
 // Begin       : 2002-08-03
 // Last Update : 2024-03-18
 // Author      : Nicola Asuni - Tecnick.com LTD - www.tecnick.com - info@tecnick.com
@@ -128,7 +128,7 @@ require_once(dirname(__FILE__).'/include/tcpdf_static.php');
  * TCPDF project (http://www.tcpdf.org) has been originally derived in 2002 from the Public Domain FPDF class by Olivier Plathey (http://www.fpdf.org), but now is almost entirely rewritten.<br>
  * @package com.tecnick.tcpdf
  * @brief PHP class for generating PDF documents without requiring external extensions.
- * @version 6.7.4
+ * @version 6.7.5
  * @author Nicola Asuni - info@tecnick.com
  * @IgnoreAnnotation("protected")
  * @IgnoreAnnotation("public")
@@ -841,7 +841,7 @@ class TCPDF {
 	/**
 	 * Internal secret used to encrypt data.
 	 * @protected
-	 * @since 6.7.4 (2024-03-21)
+	 * @since 6.7.5 (2024-03-21)
 	 */
 	protected $hash_key;
 
@@ -7716,7 +7716,10 @@ class TCPDF {
 		}
 		switch($dest) {
 			case 'I': {
-				
+				// Send PDF to the standard output
+				if (ob_get_contents()) {
+					$this->Error('Some data has already been output, can\'t send PDF file');
+				}
 				if (php_sapi_name() != 'cli') {
 					// send output to a browser
 					header('Content-Type: application/pdf');
