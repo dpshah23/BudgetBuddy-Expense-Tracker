@@ -56,7 +56,7 @@ include 'navbar.php';
             <option value="Rent">Rent</option>
             <option value="Social Media Susbscription">Social Media Susbscription</option>
             <option value="Invested Amount">Invested Amount</option>
-            <option value="Other">Other</option>
+            <option value="other">Other</option>
         </select>
         <br>
         <div class="button">

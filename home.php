@@ -94,7 +94,7 @@ include 'dbconfig.php';
             $sqlrent="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Rent';";
             $sqlsubscription="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Social Media Susbscription';";
             $sqlinvested="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Invested Amount';";
-            $sqlother="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'Other';";
+            $sqlother="SELECT * FROM `expenses` WHERE `email` = '$email' AND `category` = 'other';";
             
             $execfood=mysqli_query($conn,$sqlfood);
             $rows=mysqli_fetch_all($execfood,MYSQLI_ASSOC);
@@ -157,7 +157,7 @@ include 'dbconfig.php';
             $rows=mysqli_fetch_all($execother,MYSQLI_ASSOC);
             foreach ($rows as $i => $row)
             {
-                $other+=$row['amount'];
+                $otherexpense+=$row['amount'];
             }
 
             $expense_arr = array("$food,$clothing,$medical,$transport,$loanintrest,$rent,$subscription,$invested,$otherexpense");
