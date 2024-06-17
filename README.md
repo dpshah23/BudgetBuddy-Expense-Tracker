@@ -63,8 +63,6 @@ Before you begin, ensure you have met the following requirements:
 - **Signup and Login**: Access the application through your web browser. Use the signup page to create a new account and the login page to access your account.
 - **Add Expense**: Navigate to the "Add Expense" section to record your expenses. Select the appropriate category for each expense.
 - **Add Income**: Navigate to the "Add Income" section to record your income.
-- **View
-
- Expense Breakdown**: Navigate to the "Dashboard" or "Reports" section to view a pie chart of your expenses categorized by type.
+- **View Expense Breakdown**: Navigate to the "Dashboard" or "Reports" section to view a pie chart of your expenses categorized by type.
 - **Generate Reports**: Use the "Reports" section to generate detailed reports for both your income and expenses over specified time periods.
 
