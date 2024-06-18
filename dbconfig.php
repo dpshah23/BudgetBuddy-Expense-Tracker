@@ -1,9 +1,9 @@
 <?php
 
-$username = 'root'; 
-$db_password = ''; 
+$username = "id22138702_root"; 
+$db_password = "ExpenseTracker@1232"; 
 $servername = "localhost";
-$database = 'expense-tracker';
+$database = "id22138702_budgetbuddy";
 
 $conn = new mysqli($servername, $username, $db_password, $database);
 
