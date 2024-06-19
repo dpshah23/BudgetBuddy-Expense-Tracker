@@ -5,6 +5,7 @@ Welcome to the Expense Tracker project, a robust and user-friendly application d
 ## Table of Contents
 
 - [Features](#features)
+- [Demo](#Demo)
 - [Prerequisites](#prerequisites)
 - [Installation and Setup](#installation-and-setup)
 - [Usage](#usage)
@@ -19,6 +20,10 @@ Welcome to the Expense Tracker project, a robust and user-friendly application d
 - **Expense Analysis**: View expenses in a pie chart categorized by type.
 - **Financial Reports**: Generate detailed reports for both income and expenses.
 
+# Demo
+
+- This Project is hosted on :  [Try Here](https://budget-buddy1.000webhostapp.com/)
+  
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
